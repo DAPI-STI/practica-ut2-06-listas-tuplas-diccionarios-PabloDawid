@@ -6,11 +6,10 @@ Trabajar con una lista de tuplas (nombre, nota) y devolver una tupla.
 def best_student(records: list[tuple[str, float]]) -> tuple[str, float]:
     """
     Recibe una lista de tuplas (nombre, nota) y devuelve la tupla del alumno con mayor nota.
-
     - Si records está vacío, lanza ValueError.
     - Si hay empate, devuelve el primero que aparezca con esa nota.
-
-    Ejemplo:
-    [("Ana", 7.5), ("Luis", 9.0), ("Marta", 8.0)] -> ("Luis", 9.0)
     """
-    raise NotImplementedError("Implementa best_student(records)")
+    if not records:
+        raise ValueError("La lista de alumnos está vacía.")
+    # max con key selecciona la nota
+    return max(records, key=lambda r: r[1])
